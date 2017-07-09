@@ -1,6 +1,7 @@
 package com.CorruptionOfKindness.Core;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 
@@ -24,7 +25,7 @@ public class Options implements AfterInit {
 	private boolean debug = false;
 	
 	//Character Enable
-	private java.util.Map<String, Boolean> characterMap = new HashMap<String, Boolean>();
+	private Map<String, Boolean> characterMap = new HashMap<String, Boolean>();
 	
 	//species enable
 	private boolean warlock = false;
