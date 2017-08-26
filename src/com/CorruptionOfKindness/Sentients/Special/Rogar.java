@@ -7,6 +7,7 @@ import com.CorruptionOfKindness.Body.Genitals.Penis;
 import com.CorruptionOfKindness.Body.Genitals.Prostate;
 import com.CorruptionOfKindness.Body.Genitals.Testicles;
 import com.CorruptionOfKindness.Body.Genitals.Templates.HumanPenis;
+import com.CorruptionOfKindness.Core.Enum.CockSkin;
 import com.CorruptionOfKindness.Core.Enum.EyeColour;
 import com.CorruptionOfKindness.Core.Enum.Gender;
 import com.CorruptionOfKindness.Core.Enum.HairColour;
@@ -89,8 +90,7 @@ public class Rogar extends Orc {
 		penis.length = 10;
 		penis.girth = 2;
 		
-		penis.humanSkin = false;
-		penis.orcSkin = true;
+		penis.cockSkin = CockSkin.OrcSkin;
 		
 		g.Balls.add(balls);
 		g.Cocks.add(penis);

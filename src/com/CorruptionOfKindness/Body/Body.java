@@ -76,6 +76,7 @@ public class Body implements CheckInterface, AfterInit {
 	public EarType earType = EarType.Human;
 	public boolean horns = false;
 	public int hornLength = 0;
+	public int numOfHorns = 0; //Multiple of two
 	public int arms = 2; //must be a multiple of two
 	public ArmType armType = ArmType.Human;
 	public int leggs = 2; //must be a multiple of two

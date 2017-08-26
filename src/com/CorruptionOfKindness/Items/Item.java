@@ -11,9 +11,51 @@ public abstract class Item implements CheckInterface, AfterInit {
 	public boolean Corrupted = false;
 	public boolean Hallowed = false;
 	
+	private int numOfItems = 1;
+	
+	public int getNumOfItems() {
+		
+		return numOfItems;
+		
+	}
+	
+	public boolean addItemToStack() {
+		
+		if (numOfItems >= 5) {
+			
+			numOfItems = 5;
+			return false;
+			
+		}
+		else {
+			
+			numOfItems++;
+			return true;
+			
+		}
+		
+	}
+
+	public boolean removeItemFromStack() {
+		
+		if (numOfItems <= 0) {
+			
+			numOfItems = 0;
+			return false;
+			
+		}
+		else {
+			
+			numOfItems--;
+			return true;
+			
+		}
+		
+	}
+	
 	public void check() {
 		
-		if (Corrupted) { //TODO This is very broken plz fix
+		if (Corrupted) {
 			
 			Hallowed = false;
 			weight = (mass * 1.22);

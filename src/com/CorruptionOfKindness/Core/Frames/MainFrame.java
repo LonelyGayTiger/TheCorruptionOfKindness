@@ -561,10 +561,20 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		
 	}
 	
-	public void gameStart() {
-		// TODO Add Code for game start(From beginig)
+	@SuppressWarnings("unused")
+	public void gameStart(boolean newGame) {
+		// TODO Add Code for game start(From beginning)
+		
+		boolean combat = false;
+		Entity other;
 		
 		while (cont) {
+			
+			if (newGame) {
+				
+				
+				
+			}
 			
 			try {
 				Thread.sleep(1);

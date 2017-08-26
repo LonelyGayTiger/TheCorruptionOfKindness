@@ -66,6 +66,15 @@ public class BodyHair implements CheckInterface, AfterInit {
 		
 	}
 	
+	public void setAll(HairType type) {
+		
+		treasureTrailHairType = type;
+		armHairType = type;
+		assHairType = type;
+		
+		
+	}
+	
 	public void pubertyStage1() {
 		
 		if (!body.hasGoneThroughPuberty) {

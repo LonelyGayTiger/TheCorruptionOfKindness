@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import com.CorruptionOfKindness.Core.Frames.CharacterCreateFrame;
 import com.CorruptionOfKindness.Core.Frames.MainFrame;
 import com.CorruptionOfKindness.Core.Frames.MainMenu;
+import com.CorruptionOfKindness.Core.Frames.OptionFrame;
 import com.CorruptionOfKindness.Utill.Utills;
 
 public class Main {
@@ -58,16 +59,16 @@ public class Main {
 				case 2:
 					
 					break;
-				case 3:
-					
+				case 3:					
+					mainMenu.setEnabled(false);
+					new OptionFrame(Options);
+					mainMenu.setEnabled(true);
 					break;
 				case 4:
-					
 					cont = false;
 					mainMenu.setEnabled(false);
 					mainMenu.dispose();
 					mMenu.stop();
-					
 					break;
 			
 			}
@@ -89,7 +90,7 @@ public class Main {
 		//Options.exsistingSave = true; Enable for final version, once a menu exists
 		
 		mainFrame = new MainFrame(Options, gameState);
-		mainFrame.gameStart();
+		mainFrame.gameStart(true);
 		
 	}
 	

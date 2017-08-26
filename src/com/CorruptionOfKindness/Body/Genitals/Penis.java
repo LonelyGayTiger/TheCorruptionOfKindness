@@ -1,22 +1,22 @@
 package com.CorruptionOfKindness.Body.Genitals;
 
+import com.CorruptionOfKindness.Body.Genitals.Templates.HorseCock;
+import com.CorruptionOfKindness.Body.Genitals.Templates.HumanPenis;
+import com.CorruptionOfKindness.Body.Genitals.Templates.MinotaurCock;
+import com.CorruptionOfKindness.Body.Genitals.Templates.TentacleCock;
+import com.CorruptionOfKindness.Core.Enum.CockSkin;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.Orgasm;
+import com.CorruptionOfKindness.Utill.Utills;
 
 public class Penis implements AfterInit, Orgasm {
 	
 	public double length = 5;
 	public double girth = 1;
+	public double volume = 5;
 	
 	//Cockskin
-	public boolean demonSkin = false;
-	public boolean reptilianSkin = false;
-	public boolean humanSkin = true;
-	public boolean demonTentacleSkin = false;
-	public boolean plantTentacleSkin = false;
-	public boolean horseCockSkin = false;
-	public boolean dogCockSkin = false;
-	public boolean orcSkin = false;
+	public CockSkin cockSkin = CockSkin.HumanSkin;
 	
 	//Glands
 	public boolean humanGlands = true;
@@ -42,6 +42,113 @@ public class Penis implements AfterInit, Orgasm {
 	public boolean horseSheath = false;
 	public boolean dragonSheath = false;
 	public boolean tentacleSheath = false;
+	
+	public final String[] cockSizeDesc = 
+		{"micro", "tiny", "small", "average", "big", "huge", "giant", "monsterous"}; 
+	
+	public int calculateCockSizeInt() {
+		
+		if (length >= 5 && length < 6) return 3;
+		else if (length >= 4 && length < 5) return 2;
+		else if (length >= 2.5 && length < 4) return 1;
+		else if (length < 2.5) return 0;
+		else if (length >= 6 && length < 8.5) return 4;
+		else if (length >= 8.5 && length < 10) return 5;
+		else if (length >= 10 && length < 14) return 6;
+		else if (length >= 14) return 7;
+		
+		return 1;
+		
+	}
+	
+	public String getCockType() {
+		
+		if (HumanPenis.checkHumanPenis(this)) return "human";
+		else if (HorseCock.horseCockCheck(this)) return "horse";
+		else if (MinotaurCock.minotaurCockCheck(this)) return "minotaur";
+		else if (TentacleCock.tentacleCockCheck(this)) return "tentacle";
+		return "human";
+		
+	}
+	
+	public String getCockTypeDesc() {
+		
+		if (HumanPenis.checkHumanPenis(this)) return "cock";
+		else if (HorseCock.horseCockCheck(this)) {
+			
+			int i = Utills.randomInt(0, 2);
+			
+			switch (i) {
+			
+			case 0:
+				
+				return "stalion cock";
+			case 1:
+				
+				return "horse-cock";
+			case 2:
+				
+				return "horse-shaft";
+			
+			}
+			
+		}
+		else if (MinotaurCock.minotaurCockCheck(this)) {
+			
+			int i = Utills.randomInt(0, 5);
+			
+			switch (i) {
+			
+			case 0:
+				
+				return "horse-cock";
+			case 1:
+				
+				return "minotaur cock";
+			case 2:
+				
+				return "stalion cock";
+			case 3:
+				
+				return "horse-shaft";
+			case 4:
+				
+				return "horse-member";
+			case 5:
+				
+				return "minotaur cock";
+			
+			}
+			
+		}
+		else if (TentacleCock.tentacleCockCheck(this)) return "tentacle cock";
+		return "cock";
+		
+	}
+	
+	public String getDescription() {
+		
+		int size = calculateCockSizeInt();
+		
+		String s = "";
+		
+		s = ( s + "Your " + cockSizeDesc[size] + ", " + getCockTypeDesc() + "is " + length 
+				+ "inches long, and " + girth + " inches thick.");
+		
+		if (getCockType().equals("minotaur")) {
+			
+			
+			
+		}
+		else if (getCockType().equals("horse")) {
+			
+			
+			
+		}
+		
+		return s;
+		
+	}
 
 	@Override
 	public void afterInit() {

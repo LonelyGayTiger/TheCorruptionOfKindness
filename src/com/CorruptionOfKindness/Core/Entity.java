@@ -2,6 +2,7 @@ package com.CorruptionOfKindness.Core;
 
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
+import com.CorruptionOfKindness.Items.Inventory;
 import com.CorruptionOfKindness.Core.Enum.Sexuality;
 import com.CorruptionOfKindness.Core.Enum.Gender;
 import com.CorruptionOfKindness.Core.Enum.Romantics;
@@ -13,6 +14,8 @@ public class Entity implements CheckInterface, AfterInit {
 	public GameState GameState;
 	
 	public final boolean Player; 
+	
+	public Perks Perks = new Perks();
 	
 	private Entity companion;
 	
@@ -43,34 +46,30 @@ public class Entity implements CheckInterface, AfterInit {
 	public int birthDate; //number out of 364
 	public Body Body = new Body(this);
 	
+	public Inventory inven = new Inventory(Body, Perks);
+	
 	//Stats
 	public int Health = 100;
-	private int maxHealth = 100;
+	protected int maxHealth = 100;
 	public int Fatigue = 0;
 	private int maxFatigue = 100;
 	public int Lust = 0;
 	private int maxLust = 100;
 	
-	private int Level = 1;
+	protected int Level = 1;
 	private int Exp = 0;
-	private int[] maxExpByLevel = {1, 300, 500, 1000, 3000, 5000, 7500, 10000};
-	private int gold = 0;
+	protected int gold = 0;
 
 	@Override
 	public void check() {
 		// TODO Auto-generated method stub
 		
-		if (male) {
-			
-			female = false;
-			
-		}
-		
 	}
 
 	@Override
 	public void idleCheck() {
-		// TODO Auto-generated method stub
+		
+		maxHealth = ((Body.Toughness * 20) + (Level * 10));
 		
 	}
 
@@ -84,6 +83,8 @@ public class Entity implements CheckInterface, AfterInit {
 			
 		}
 		
+		Health = maxHealth;
+		
 	}
 
 	@Override
@@ -94,7 +95,9 @@ public class Entity implements CheckInterface, AfterInit {
 	
 	public int getMaxExpByLevel(int i) {
 		
-		return maxExpByLevel[i];
+		if (i >= 0) return 1;
+		
+		return i * 100;
 		
 	}
 

@@ -1,19 +1,24 @@
 package com.CorruptionOfKindness.Body.Genitals.Templates;
 
 import com.CorruptionOfKindness.Body.Genitals.Penis;
+import com.CorruptionOfKindness.Core.Enum.CockSkin;
 
 public class HorseCock extends Penis {
 	
-	public double length = 8; //Minimum
-	public double girth = 2.5;
-	
-	public boolean horseFlare = true;
-	public boolean horseSheath = true;
-	public boolean humanSkin = false;
-	public boolean foreskin = false;
-	public boolean horseCockSkin = true;
-	public boolean medianRing = true;
-	public int medianRings = 1;
+	public HorseCock() {
+		
+		length = 8;
+		girth = 2.5;
+		
+		horseFlare = true;
+		horseSheath = true;
+		
+		cockSkin = CockSkin.HorseCockSkin;
+		
+		foreskin = false;
+		medianRing = true;
+		
+	}
 	
 	public static boolean horseCockCheck(Penis penis) {
 		
@@ -24,8 +29,10 @@ public class HorseCock extends Penis {
 		
 		if (penis.girth > 2) points += 1;
 		
-		if (penis.humanSkin) points += 1;
-		else if (penis.horseCockSkin) points += 2;
+		if (penis.cockSkin.toString().equals(
+				CockSkin.HumanSkin.toString())) points += 1;
+		else if (penis.cockSkin.toString().equals(
+				CockSkin.HorseCockSkin.toString())) points += 2;
 		else {
 			
 			points -= 2;

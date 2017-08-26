@@ -1,6 +1,7 @@
 package com.CorruptionOfKindness.Body.Genitals.Templates;
 
 import com.CorruptionOfKindness.Body.Genitals.Penis;
+import com.CorruptionOfKindness.Core.Enum.CockSkin;
 
 public class HumanPenis extends Penis {
 	
@@ -24,7 +25,8 @@ public class HumanPenis extends Penis {
 		
 		if (penis.humanGlands) points += 2;
 		
-		if (penis.humanSkin) points += 1;
+		if (penis.cockSkin.toString().equals(
+				CockSkin.HumanSkin.toString())) points += 1;
 		else {
 			
 			points -= 2;

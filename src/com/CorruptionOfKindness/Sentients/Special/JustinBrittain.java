@@ -94,7 +94,6 @@ public class JustinBrittain extends Individual {
 		penis.length = 6.5;
 		penis.girth = 1.8;
 		
-		penis.humanSkin = true;
 		penis.foreskin = false;
 		
 		g.Balls.add(balls);

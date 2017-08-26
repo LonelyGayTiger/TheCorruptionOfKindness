@@ -23,8 +23,20 @@ public class Testicles implements CheckInterface, AfterInit, Orgasm {
 	public double girth = 0.5;
 	public double volume = 0;
 	public double spermVolume = 0;
-	private int spermVolumeMax = 0;
+	private double spermVolumeMax = 0;
 	public int size = 1;
+	
+	public Testicles clone() {
+		
+		Testicles t = new Testicles(body);
+		t.internal = internal;
+		t.length = length;
+		t.girth = girth;
+		t.afterInit();
+		
+		return t;
+		
+	}
 
 	@Override
 	public void afterInit() {
@@ -32,7 +44,7 @@ public class Testicles implements CheckInterface, AfterInit, Orgasm {
 		
 		this.volume = XtraMath.EllipsoidVolume(
 				XtraMath.icm(length), XtraMath.icm(girth), XtraMath.icm(girth));
-		this.spermVolume = (
+		this.spermVolumeMax = (
 				new BigDecimal(this.volume).multiply(new BigDecimal("0.9")).doubleValue());
 		
 	}
@@ -62,7 +74,7 @@ public class Testicles implements CheckInterface, AfterInit, Orgasm {
 	@Override
 	public void check() {
 		// TODO Auto-generated method stub
-		increaseSpermVolume(1 * (body.Libido / 10));
+		increaseSpermVolume((int) ((1 * (body.Libido / 10)) * body.fertilityScale));
 		
 	}
 

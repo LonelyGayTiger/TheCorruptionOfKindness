@@ -17,7 +17,7 @@ public enum Race {
 	ReptilianMorph,
 	SharkMorph,
 	TigerMorph,
-	Anegl,
+	Angell,
 	Drider,
 	Orc,
 	Witch,

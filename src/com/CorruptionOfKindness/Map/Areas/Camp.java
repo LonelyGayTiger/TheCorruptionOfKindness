@@ -4,14 +4,27 @@ import com.CorruptionOfKindness.Core.Area;
 
 public class Camp extends Area {
 	
-	@SuppressWarnings("unused")
-	private String Name = "Camp";
+	public final String Name = "Camp";
 	public boolean discovered = true;
 	
+	//Resources
+	public int wood = 0;
+	public int stone = 0;
+	
+	//Camp improvements
+	public final String[] improvements = {"Fire", "A-Frame Shelter", "Makeshift Wall", 
+											"Wooden Hut", "Wood Wall", "Stone Hut", 
+											"Stone Wall", "Log Cabin", "Reinforced Wall"};
+	public final int[] stoneRequired = {5, 2, 10, 10, 15, 25, 40, 40, 60};
+	public final int[] woodRequired = {5, 8, 20, 20, 30, 20, 25, 60, 60};
+	
+	//GUI Button names and states
 	public boolean[] btnStateArray = {true, false, true, false, false,
 									  false, false, false, true, true};
 	public String[] btnNameArray = {"Explore", null, "Inventory", null, null,
-									null, null, null, "Materbate", "Rest"};
+									"Build", null, null, "Materbate", "Wait"};
+	
+	//GUI Button commands
 	@Override
 	public int btn1Press() {
 		// TODO Auto-generated method stub

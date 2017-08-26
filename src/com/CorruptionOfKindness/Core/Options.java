@@ -1,5 +1,7 @@
 package com.CorruptionOfKindness.Core;
 
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,7 +42,8 @@ public class Options implements AfterInit {
 	
 	//Font and text size
 	public int selectedFont = 0;
-	public final String[] fonts = {"Tahoma"};
+	public String[] fonts = {"Tahoma"};
+	public int fontSize = 14;
 	
 	@Override
 	public void afterInit() {
@@ -64,9 +67,15 @@ public class Options implements AfterInit {
 		
 	}
 	
-	public String getFont() {
+	public Font getFont() {
 		
-		return fonts[selectedFont];
+		return new Font(fonts[selectedFont], fontSize, Font.PLAIN);
+		
+	}
+	
+	public void updateFonts() {
+		
+		fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 		
 	}
 	

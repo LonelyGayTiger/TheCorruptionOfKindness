@@ -2,22 +2,25 @@ package com.CorruptionOfKindness.Items.Weapons;
 
 import com.CorruptionOfKindness.Items.Item;
 
-public class Weapon extends Item {
+public abstract class Weapon extends Item {
 	
 	//Basic Weapon stats
 	public double dammage;
-	public double hitChance;
+	
+	public boolean magic = false;
+	public double magicMult = 1;
 	
 	//Player wield requirements
+	public int strengthRec;
 	public int toneRec;
 	public int heightRec;
 	
+	public int maxCorr = 100;
+	public int minCorr = 0;
 	
 	public void check() {
 		
 		super.check();
-		
-		
 		
 	}
 

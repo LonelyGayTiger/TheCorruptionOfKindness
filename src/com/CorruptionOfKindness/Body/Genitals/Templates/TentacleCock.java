@@ -1,6 +1,7 @@
 package com.CorruptionOfKindness.Body.Genitals.Templates;
 
 import com.CorruptionOfKindness.Body.Genitals.Penis;
+import com.CorruptionOfKindness.Core.Enum.CockSkin;
 
 public class TentacleCock extends Penis {
 	
@@ -16,7 +17,22 @@ public class TentacleCock extends Penis {
 	public boolean foreskin = false;
 	public boolean tentacleSheath = true;
 	
-public static boolean tentacleCockCheck(Penis penis) {
+	public TentacleCock() {
+		
+		length = 13;
+		girth = 3;
+		
+		cockSkin = CockSkin.PlantTentacleSkin;
+		
+		humanGlands = false;
+		tentaclePenis = true;
+		
+		foreskin = false;
+		tentacleSheath = true;
+		
+	}
+	
+	public static boolean tentacleCockCheck(Penis penis) {
 		
 		int points = 0;
 		
@@ -26,8 +42,10 @@ public static boolean tentacleCockCheck(Penis penis) {
 		
 		if (penis.girth > 2.5) points += 1;
 		
-		if (penis.plantTentacleSkin) points += 1;
-		else if (penis.demonTentacleSkin) points += 2;
+		if (penis.cockSkin.toString().equals(
+				CockSkin.PlantTentacleSkin.toString())) points += 1;
+		else if (penis.cockSkin.toString().equals(
+				CockSkin.DemonTentacleSkin.toString())) points += 2;
 		else {
 			
 			points -= 2;

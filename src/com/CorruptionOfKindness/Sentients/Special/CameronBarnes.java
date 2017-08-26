@@ -96,7 +96,6 @@ public CameronBarnes(GameState GameState, boolean player) {
 		penis.length = 8.5;
 		penis.girth = 2.3;
 		
-		penis.humanSkin = true;
 		penis.foreskin = false;
 		
 		g.Balls.add(balls);
