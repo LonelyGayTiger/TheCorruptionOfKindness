@@ -12,7 +12,6 @@ import com.CorruptionOfKindness.Core.Map;
 
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.awt.BorderLayout;
@@ -31,7 +30,6 @@ import javax.swing.JMenuItem;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 	
@@ -54,16 +52,9 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 	private JLabel lblStrength, lblToughness, lblIntelegence, lblLibido, lblSensitivity, lblCorruption, lblHealth, lblLust, lblStamina, lblLevel, lblExperience, lblGold, lblYear, lblDay, lblTime;
 	private JProgressBar corrBar, healthBar, lustBar, stamBar, expBar;
 	
-	public MainFrame(Options options, GameState gameState) {
+	public MainFrame(Options options, GameState gameState, ActionListener actL, WindowAdapter windoAdapter) {
 		
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosed(WindowEvent e) {
-				
-				exit();
-				
-			}
-		});
+		addWindowListener(windoAdapter);
 		
 		this.gameState = gameState;
 		this.options = options;
@@ -290,6 +281,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		panel.add(expBar, gbc_expBar);
 		
 		btnLevelUp = new JButton("Level Up");
+		btnLevelUp.addActionListener(actL);
 		btnLevelUp.setEnabled(false);
 		btnLevelUp.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		GridBagConstraints gbc_btnLevelUp = new GridBagConstraints();
@@ -337,7 +329,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		gbc_lblDay.gridy = 28;
 		panel.add(lblDay, gbc_lblDay);
 		
-		lblTime = new JLabel("Time: " + gameState.timeArray[gameState.timeArrayInt]);
+		lblTime = new JLabel("Time: " + gameState.getTime());
 		lblTime.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_lblTime = new GridBagConstraints();
 		gbc_lblTime.gridx = 0;
@@ -365,13 +357,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		panel_1.add(separator_6, gbc_separator_6);
 		
 		btn1 = new JButton("New button");
-		btn1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				btn1();
-				
-			}
-		});
+		btn1.addActionListener(actL);
 		btn1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_btn1 = new GridBagConstraints();
 		gbc_btn1.insets = new Insets(0, 0, 5, 5);
@@ -380,13 +366,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		panel_1.add(btn1, gbc_btn1);
 		
 		btn2 = new JButton("New button");
-		btn2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				btn2();
-				
-			}
-		});
+		btn2.addActionListener(actL);
 		btn2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_btn2 = new GridBagConstraints();
 		gbc_btn2.insets = new Insets(0, 0, 5, 5);
@@ -395,13 +375,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		panel_1.add(btn2, gbc_btn2);
 		
 		btn3 = new JButton("New button");
-		btn3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				btn3();
-				
-			}
-		});
+		btn3.addActionListener(actL);
 		btn3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_btn3 = new GridBagConstraints();
 		gbc_btn3.insets = new Insets(0, 0, 5, 5);
@@ -410,13 +384,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		panel_1.add(btn3, gbc_btn3);
 		
 		btn4 = new JButton("New button");
-		btn4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				btn4();
-				
-			}
-		});
+		btn4.addActionListener(actL);
 		btn4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_btn4 = new GridBagConstraints();
 		gbc_btn4.insets = new Insets(0, 0, 5, 5);
@@ -425,13 +393,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		panel_1.add(btn4, gbc_btn4);
 		
 		btn5 = new JButton("New button");
-		btn5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				btn5();
-				
-			}
-		});
+		btn5.addActionListener(actL);
 		btn5.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_btn5 = new GridBagConstraints();
 		gbc_btn5.insets = new Insets(0, 0, 5, 0);
@@ -454,13 +416,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		panel_1.add(separator_5, gbc_separator_5);
 		
 		btn6 = new JButton("New button");
-		btn6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				btn6();
-				
-			}
-		});
+		btn6.addActionListener(actL);
 		btn6.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_btn6 = new GridBagConstraints();
 		gbc_btn6.insets = new Insets(0, 0, 5, 5);
@@ -469,13 +425,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		panel_1.add(btn6, gbc_btn6);
 		
 		btn7 = new JButton("New button");
-		btn7.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				btn7();
-				
-			}
-		});
+		btn7.addActionListener(actL);
 		btn7.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_btn7 = new GridBagConstraints();
 		gbc_btn7.insets = new Insets(0, 0, 5, 5);
@@ -484,13 +434,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		panel_1.add(btn7, gbc_btn7);
 		
 		btn8 = new JButton("New button");
-		btn8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				btn8();
-				
-			}
-		});
+		btn8.addActionListener(actL);
 		btn8.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_btn8 = new GridBagConstraints();
 		gbc_btn8.insets = new Insets(0, 0, 5, 5);
@@ -499,13 +443,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		panel_1.add(btn8, gbc_btn8);
 		
 		btn9 = new JButton("New button");
-		btn9.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				btn9();
-				
-			}
-		});
+		btn9.addActionListener(actL);
 		btn9.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_btn9 = new GridBagConstraints();
 		gbc_btn9.insets = new Insets(0, 0, 5, 5);
@@ -514,13 +452,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		panel_1.add(btn9, gbc_btn9);
 		
 		btn10 = new JButton("New button");
-		btn10.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				btn10();
-				
-			}
-		});
+		btn10.addActionListener(actL);
 		btn10.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_btn10 = new GridBagConstraints();
 		gbc_btn10.insets = new Insets(0, 0, 5, 0);
@@ -558,38 +490,6 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		mntmApearance = new JMenuItem("Apearance");
 		menuBar.add(mntmApearance);
 		this.setVisible(true);
-		
-	}
-	
-	@SuppressWarnings("unused")
-	public void gameStart(boolean newGame) {
-		// TODO Add Code for game start(From beginning)
-		
-		boolean combat = false;
-		Entity other;
-		
-		while (cont) {
-			
-			if (newGame) {
-				
-				
-				
-			}
-			
-			try {
-				Thread.sleep(1);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		}
-		
-	}
-	
-	private void exit() {
-		
-		cont = false;
 		
 	}
 
@@ -786,66 +686,6 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 			i++;
 			
 		}
-		
-	}
-	
-	public void btn1() {
-		
-		currentArea.btn1Press();
-		
-	}
-	
-	public void btn2() {
-		
-		currentArea.btn2Press();
-		
-	}
-	
-	public void btn3() {
-		
-		currentArea.btn3Press();
-		
-	}
-	
-	public void btn4() {
-		
-		currentArea.btn4Press();
-		
-	}
-	
-	public void btn5() {
-		
-		currentArea.btn5Press();
-		
-	}
-	
-	public void btn6() {
-		
-		currentArea.btn6Press();
-		
-	}
-	
-	public void btn7() {
-		
-		currentArea.btn7Press();
-		
-	}
-	
-	public void btn8() {
-		
-		currentArea.btn8Press();
-		
-	}
-	
-	public void btn9() {
-		
-		currentArea.btn9Press();
-		
-	}
-	
-	public void btn10() {
-		
-		currentArea.btn10Press();
 		
 	}
 

@@ -2,9 +2,10 @@ package com.CorruptionOfKindness.Body.Genitals;
 
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
+import com.CorruptionOfKindness.CoreInterfaces.GetDescription;
 import com.CorruptionOfKindness.CoreInterfaces.Orgasm;
 
-public class Vagina implements CheckInterface, AfterInit, Orgasm {
+public class Vagina implements CheckInterface, AfterInit, Orgasm, GetDescription {
 
 	@Override
 	public void afterInit() {
@@ -34,6 +35,12 @@ public class Vagina implements CheckInterface, AfterInit, Orgasm {
 	public void orgasm() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

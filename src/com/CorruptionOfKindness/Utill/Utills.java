@@ -22,6 +22,37 @@ public class Utills {
 		
 	}
 	
+	public static String getTimeFromInt(int t) {
+		
+		if (t < 10) return ("0" + t + ":00");
+		else return (t + ":00");
+		
+	}
+	
+	public static String getTimeFromInt(int t, boolean militaryTime) {
+		
+		if (militaryTime) return getTimeFromInt(t);
+		else {
+			
+			if (t < 12) {
+				
+				if (t == 0) return "12:00AM";
+				else if (t < 10) return ("0" + t + ":00AM");
+				else return (t + ":00AM");
+				
+			}
+			else {
+				
+				if ((t - 12) == 0) return "12:00PM";
+				else if ((t - 12) < 10) return ("0" + (t - 12) + ":00PM");
+				else return ((t - 12) + ":00PM");
+				
+			}
+			
+		}
+		
+	}
+	
 	public static BigDecimal bgD(int num) {
 		
 		return new BigDecimal(String.valueOf(num));

@@ -2,9 +2,10 @@ package com.CorruptionOfKindness.Body.Genitals;
 
 import com.CorruptionOfKindness.Core.Enum.BreastSize;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
-import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;;
+import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
+import com.CorruptionOfKindness.CoreInterfaces.GetDescription;;
 
-public class Breasts implements CheckInterface, AfterInit {
+public class Breasts implements CheckInterface, AfterInit, GetDescription {
 	
 	public BreastSize boobSize = BreastSize.ACup;
 
@@ -30,6 +31,12 @@ public class Breasts implements CheckInterface, AfterInit {
 	public void waitCheck(double hours) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

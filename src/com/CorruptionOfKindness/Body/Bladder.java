@@ -47,15 +47,11 @@ public class Bladder implements CheckInterface, AfterInit {
 	
 	private void addUrine(double urine) {
 		
-		if ((urine + this.urine) >= maxUrine) {
+		this.urine += urine;
+		
+		if (this.urine > urine) {
 			
-			this.urine = this.maxUrine;
-			urinate(true);
-			
-		}
-		else {
-			
-			this.urine += urine;
+			this.urine = this.maxUrine; //Thanks
 			
 		}
 		

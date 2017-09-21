@@ -5,10 +5,11 @@ import java.math.BigDecimal;
 import com.CorruptionOfKindness.Body.Body;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
+import com.CorruptionOfKindness.CoreInterfaces.GetDescription;
 import com.CorruptionOfKindness.CoreInterfaces.Orgasm;
 import com.CorruptionOfKindness.Utill.XtraMath;
 
-public class Testicles implements CheckInterface, AfterInit, Orgasm {
+public class Testicles implements CheckInterface, AfterInit, Orgasm, GetDescription {
 	
 	private Body body;
 	
@@ -96,6 +97,12 @@ public class Testicles implements CheckInterface, AfterInit, Orgasm {
 	public void orgasm() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

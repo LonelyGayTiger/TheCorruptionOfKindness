@@ -27,7 +27,7 @@ public class GameStartFrame extends JFrame {
 		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setResizable(false);
-		setTitle("Corruption Of Kindness: ");
+		setTitle("Corruption Of Kindness: " + this.options.VERSION);
 		this.setSize(new Dimension(750, 450));
 		
 		JPanel panel = new JPanel();

@@ -130,7 +130,7 @@ public class Options implements AfterInit {
 	}
 
 	/**
-	 * @return the warlock
+	 * @return the value for warlock
 	 */
 	public boolean isWarlock() {
 		return warlock;

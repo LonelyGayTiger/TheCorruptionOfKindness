@@ -2,6 +2,7 @@ package com.CorruptionOfKindness.Core;
 
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
+import com.CorruptionOfKindness.Utill.Utills;
 
 public class GameState implements CheckInterface, AfterInit {
 	
@@ -11,9 +12,8 @@ public class GameState implements CheckInterface, AfterInit {
 	public int day = 1;
 	public int date = 1;
 	public int year = 1;
-	public int timeArrayInt = 8;
-	public String[] timeArray = {"00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", 
-			"08:00", "00:00", "00:00", "00:00", "00:00" ,"00:00"};
+	public int timeInt = 8;
+	public boolean twelveHourTime = true;
 	
 	public Entity Player;
 	public final Map MAP = new Map(this);
@@ -47,6 +47,12 @@ public class GameState implements CheckInterface, AfterInit {
 	public void setSaved(boolean b) {
 		
 		saved = b;
+		
+	}
+	
+	public String getTime() {
+		
+		return Utills.getTimeFromInt(timeInt, twelveHourTime);
 		
 	}
 

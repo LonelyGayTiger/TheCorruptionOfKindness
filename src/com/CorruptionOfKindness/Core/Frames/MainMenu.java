@@ -4,7 +4,6 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
-import com.CorruptionOfKindness.Core.GameState;
 import com.CorruptionOfKindness.Core.Options;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
@@ -28,7 +27,7 @@ import java.awt.event.ActionEvent;
 
 public class MainMenu extends JFrame implements Runnable {
 	
-	public MainMenu(Options options, GameState gameState) {
+	public MainMenu(Options options) {
 		
 		try {
 			this.setIconImage(ImageIO.read(new File(options.Path + "\\res\\purple_heart.png")));

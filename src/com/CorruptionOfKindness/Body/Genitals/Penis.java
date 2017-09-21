@@ -6,10 +6,11 @@ import com.CorruptionOfKindness.Body.Genitals.Templates.MinotaurCock;
 import com.CorruptionOfKindness.Body.Genitals.Templates.TentacleCock;
 import com.CorruptionOfKindness.Core.Enum.CockSkin;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
+import com.CorruptionOfKindness.CoreInterfaces.GetDescription;
 import com.CorruptionOfKindness.CoreInterfaces.Orgasm;
 import com.CorruptionOfKindness.Utill.Utills;
 
-public class Penis implements AfterInit, Orgasm {
+public class Penis implements AfterInit, Orgasm, GetDescription {
 	
 	public double length = 5;
 	public double girth = 1;

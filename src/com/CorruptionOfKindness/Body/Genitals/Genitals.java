@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import com.CorruptionOfKindness.Body.Body;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
+import com.CorruptionOfKindness.CoreInterfaces.GetDescription;
 
-public class Genitals implements CheckInterface, AfterInit {
+public class Genitals implements CheckInterface, AfterInit, GetDescription {
 	
 	public Body body;
 	
@@ -126,6 +127,12 @@ public class Genitals implements CheckInterface, AfterInit {
 		
 		breasts.waitCheck(hours);
 		
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

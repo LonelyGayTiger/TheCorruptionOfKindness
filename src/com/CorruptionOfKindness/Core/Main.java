@@ -7,21 +7,17 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import com.CorruptionOfKindness.Core.Frames.CharacterCreateFrame;
-import com.CorruptionOfKindness.Core.Frames.MainFrame;
 import com.CorruptionOfKindness.Core.Frames.MainMenu;
 import com.CorruptionOfKindness.Core.Frames.OptionFrame;
 import com.CorruptionOfKindness.Utill.Utills;
 
 public class Main {
 	
-	public static Entity Player;
-	
-	public static GameState gameState = new GameState();
 	public static Options Options = new Options();
-	public static MainFrame mainFrame;
 	public static MainMenu mainMenu;
 	public static Thread mMenu;
+	
+	public static GameManager GameManager;
 	
 	private static boolean cont = true;
 	
@@ -30,13 +26,9 @@ public class Main {
 		
 		IO.createDirs();
 		
-		if (!IO.loadOptions()) {
-			
-			IO.updateSavedOptions();
-			
-		}
+		if (!IO.loadOptions()) IO.updateSavedOptions();
 		
-		mainMenu = new MainMenu(Options, gameState);
+		mainMenu = new MainMenu(Options);
 		mMenu = new Thread(mainMenu);
 		mMenu.start();
 		
@@ -49,15 +41,18 @@ public class Main {
 				case 1:
 					mainMenu.setVisible(false);
 					mainMenu.setEnabled(false);
-					newGame();
-					mainFrame.setVisible(false);
-					mainFrame.setEnabled(false);
-					mainFrame.dispose();
+					GameManager = new GameManager(Options);
+					GameManager.newGame();
 					mainMenu.setEnabled(true);
 					mainMenu.setVisible(true);
 					break;
 				case 2:
-					
+					mainMenu.setVisible(false);
+					mainMenu.setEnabled(false);
+					GameManager = new GameManager(Options);
+					GameManager.loadFromGD(load());
+					mainMenu.setEnabled(true);
+					mainMenu.setVisible(true);
 					break;
 				case 3:					
 					mainMenu.setEnabled(false);
@@ -66,6 +61,7 @@ public class Main {
 					break;
 				case 4:
 					cont = false;
+					mainMenu.setVisible(false);
 					mainMenu.setEnabled(false);
 					mainMenu.dispose();
 					mMenu.stop();
@@ -75,22 +71,16 @@ public class Main {
 			
 		}
 		
+		mainMenu.dispose();
+		mMenu.stop();
+		
 	}
 	
-	public static void newGame() {
+	public static GameState load() {
 		
-		CharacterCreateFrame CCFrame = new CharacterCreateFrame(Options, gameState);
-		Player = CCFrame.getCharacter();
-		CCFrame.setEnabled(false);
-		CCFrame.dispose();
-		System.out.println("IT WORKS, BOO YEAH MOTHA FUCKA");
-		gameState.Player = Player;
-		System.out.println(Player.Name);
-		IO.save();
-		//Options.exsistingSave = true; Enable for final version, once a menu exists
-		
-		mainFrame = new MainFrame(Options, gameState);
-		mainFrame.gameStart(true);
+		//TODO Create a save/file selector of some sort
+		String savepath = null;
+		return IO.load(savepath);
 		
 	}
 	
@@ -170,11 +160,11 @@ public class Main {
 				FileOutputStream fileOut =
 				         new FileOutputStream(Options.Path + path);
 				         ObjectOutputStream out = new ObjectOutputStream(fileOut);
-				         out.writeObject(gameState);
+				         out.writeObject(GameManager.GameState);
 				         out.close();
 				         fileOut.close();
 				         System.out.printf("Serialized data is saved as" + path);
-				         gameState.setSaved(true);
+				         GameManager.GameState.setSaved(true);
 				
 			}
 			catch (IOException e) {
@@ -185,13 +175,13 @@ public class Main {
 			
 		}
 		
-		public static boolean load() {
+		public static GameState load() {
 			
 			return load("/saves/gameState.cok");
 			
 		}
 		
-		public static boolean load(String path) {
+		public static GameState load(String path) {
 			
 			GameState e = null;
 		      try {
@@ -202,25 +192,22 @@ public class Main {
 		         fileIn.close();
 		      }catch(IOException i) {
 		         System.out.println(path + " Does not exsist");
-		         return false;
+		         return null;
 		      }catch(ClassNotFoundException c) {
 		         System.out.println("GameState class not found");
 		         c.printStackTrace();
-		         return false;
+		         return null;
 		      }
-		      
-		      gameState = e;
 			
-			return true;
+			return e;
 			
 		}
 		
-		//public static boolean deleteSave() {
+		public static GameState quickLoad(int i) {
 			
-		//	//TO\DO ADD CODE
-		//	return true;
+			return load("\\saves\\quick\\gameState" + i + ".cok");
 			
-		//}
+		}
 		
 		public static void quickSave(int i) {
 			
