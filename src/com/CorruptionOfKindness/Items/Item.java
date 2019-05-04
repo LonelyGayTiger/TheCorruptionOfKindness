@@ -3,6 +3,11 @@ package com.CorruptionOfKindness.Items;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public abstract class Item implements CheckInterface, AfterInit {
 	
 	public String name;

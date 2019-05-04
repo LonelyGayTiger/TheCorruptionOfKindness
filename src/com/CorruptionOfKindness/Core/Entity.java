@@ -9,6 +9,11 @@ import com.CorruptionOfKindness.Core.Enum.Romantics;
 import com.CorruptionOfKindness.Core.Enum.Race;
 import com.CorruptionOfKindness.Body.Body;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Entity implements CheckInterface, AfterInit {
 	
 	public GameState GameState;

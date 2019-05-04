@@ -1,5 +1,10 @@
 package com.CorruptionOfKindness.Items.Weapons;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class EnchantedLeatherGauntlets extends Weapon {
 	
 	public EnchantedLeatherGauntlets() {

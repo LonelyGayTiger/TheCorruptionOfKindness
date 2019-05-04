@@ -5,23 +5,30 @@ import java.awt.GraphicsEnvironment;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.CorruptionOfKindness.Core.Main.IO;
+import com.CorruptionOfKindness.Core.Enum.OSType;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Options implements AfterInit {
+	
+	public OSType OS = OSType.Windows;
 	
 	public String Path = "C:\\Users\\" 
 	+ System.getProperty("user.name") + "\\Documents\\My games\\CorruptionOfKindness";
 	
-	public final String VERSION	= "v0.3 UI and Areas";
-	
-	public boolean exsistingSave = false;
+	public final String VERSION	= "v0.4 GameManager";
 	
 	public boolean urine = true;
 	public boolean urinePlay = false;
 	public boolean parasites = true;
 	
 	private int maxHeight = 200;
-	private int minHeight = 120;
+	private int minHeight = 130;
 	
 	public boolean easyMode = false;
 	private boolean debug = false;
@@ -47,6 +54,24 @@ public class Options implements AfterInit {
 	
 	@Override
 	public void afterInit() {
+		
+		OS = IO.getOperatingSystemType();
+		
+		switch (OS) {
+		
+		case Windows:
+			Path = "C:\\Users\\" 
+					+ System.getProperty("user.name") + "\\Documents\\My games\\CorruptionOfKindness";
+			break;
+		case Linux:
+			Path = "/home/" + System.getProperty("user.name") + "/.CorruptionOfKindness";
+			break;
+		case MacOS:
+			break;
+		default:
+			break;
+		
+		}
 		
 		characterMap.put("Auriel", true);
 		characterMap.put("Cameron", true);

@@ -4,6 +4,11 @@ import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
 import com.CorruptionOfKindness.Utill.Utills;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class GameState implements CheckInterface, AfterInit {
 	
 	public boolean gameContinue = true;
@@ -17,6 +22,8 @@ public class GameState implements CheckInterface, AfterInit {
 	
 	public Entity Player;
 	public final Map MAP = new Map(this);
+	
+	public boolean canSave = true;
 	
 	public boolean saved = false;
 
@@ -64,10 +71,10 @@ public class GameState implements CheckInterface, AfterInit {
 	}
 
 	/**
-	 * @param GAME_STATE the gAME_STATE to set
+	 * increases GAME_STATE
 	 */
 	public void incGAME_STATE() {
-		GAME_STATE = GAME_STATE + 1;;
+		GAME_STATE = GAME_STATE + 1;
 	}
 
 }

@@ -21,11 +21,13 @@ import java.beans.PropertyChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class OptionFrame extends JFrame {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1520241338386670106L;
 	
 	public Options Options;

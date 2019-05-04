@@ -3,6 +3,11 @@ package com.CorruptionOfKindness.Body.Genitals.Templates;
 import com.CorruptionOfKindness.Body.Genitals.Penis;
 import com.CorruptionOfKindness.Core.Enum.CockSkin;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class CatCock extends Penis {
 	
 	public CatCock() {

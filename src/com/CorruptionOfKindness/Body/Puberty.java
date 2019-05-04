@@ -1,5 +1,10 @@
 package com.CorruptionOfKindness.Body;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Puberty {
 	
 	Body body;

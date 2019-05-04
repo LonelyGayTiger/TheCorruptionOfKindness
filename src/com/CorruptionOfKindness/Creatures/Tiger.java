@@ -4,6 +4,11 @@ import com.CorruptionOfKindness.Core.Entity;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.Drop;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Tiger extends Entity implements AfterInit, Drop {
 
 	public Tiger(com.CorruptionOfKindness.Core.GameState GameState, boolean player) {

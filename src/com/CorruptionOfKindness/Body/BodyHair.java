@@ -6,6 +6,11 @@ import com.CorruptionOfKindness.Utill.Utills;
 import com.CorruptionOfKindness.Core.Enum.HairColour;
 import com.CorruptionOfKindness.Core.Enum.HairType;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class BodyHair implements CheckInterface, AfterInit {
 	
 	private Body body;

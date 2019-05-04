@@ -1,5 +1,10 @@
 package com.CorruptionOfKindness.Items.Weapons;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Sword extends Weapon {
 	
 	public Sword() {

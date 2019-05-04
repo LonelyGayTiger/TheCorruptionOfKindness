@@ -4,6 +4,11 @@ import com.CorruptionOfKindness.Core.Entity;
 import com.CorruptionOfKindness.CoreInterfaces.Transformative;
 import com.CorruptionOfKindness.Items.Item;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class MinotaurBlood extends Item implements Transformative {
 
 	@Override

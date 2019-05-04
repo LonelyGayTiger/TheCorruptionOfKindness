@@ -2,6 +2,11 @@ package com.CorruptionOfKindness.Map.Areas;
 
 import com.CorruptionOfKindness.Core.Area;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class MapAreaNext extends Area {
 
 	@Override

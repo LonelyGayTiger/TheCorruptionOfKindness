@@ -5,6 +5,11 @@ import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.Parasite;
 import com.CorruptionOfKindness.CoreInterfaces.Transformative;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Worms extends Entity implements Parasite, AfterInit, Transformative {
 
 	public Worms(com.CorruptionOfKindness.Core.GameState GameState) {

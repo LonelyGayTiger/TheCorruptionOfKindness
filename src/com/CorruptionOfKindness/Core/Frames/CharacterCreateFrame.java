@@ -53,6 +53,11 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class CharacterCreateFrame extends JFrame {
 	
 	private boolean cock = true;
@@ -61,6 +66,8 @@ public class CharacterCreateFrame extends JFrame {
 	
 	public CharacterCreateFrame(Options options, GameState gameState) {
 		
+		Utills.log("Loading Character Creator");
+		
 		//Setup
 		try {
 			this.setIconImage(ImageIO.read(new File(options.Path + "\\res\\purple_heart.png")));
@@ -68,7 +75,8 @@ public class CharacterCreateFrame extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setTitle("Charecter Creator");
 		this.setSize(new Dimension(458, 320));
 		this.setLocationRelativeTo(null);
@@ -200,13 +208,13 @@ public class CharacterCreateFrame extends JFrame {
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Physical Specifications", null, panel_1, null);
 		tabbedPane.setEnabledAt(1, true);
-		panel_1.setLayout(new MigLayout("", "[grow,fill][][grow,fill]", "[grow,fill][grow,fill][grow,fill][grow,fill][grow,fill][grow,fill][grow,fill][grow,fill][][grow,fill]"));
+		panel_1.setLayout(new MigLayout("", "[grow,fill][grow,fill]", "[grow,fill][grow,fill][grow,fill][grow,fill][grow,fill][grow,fill][grow,fill][]"));
 		
 		JLabel lblHeight = new JLabel("Height (cm) 5'feet 6.9\"inches");
 		panel_1.add(lblHeight, "cell 0 0");
 		
 		JLabel lblBuild = new JLabel("Build");
-		panel_1.add(lblBuild, "cell 2 0");
+		panel_1.add(lblBuild, "cell 1 0");
 		
 		JSpinner height_spinner = new JSpinner();
 		height_spinner.addChangeListener(new ChangeListener() {
@@ -227,14 +235,14 @@ public class CharacterCreateFrame extends JFrame {
 			
 		}
 		
-		panel_1.add(build, "cell 2 1");
+		panel_1.add(build, "cell 1 1");
 		
 		JLabel lblEyeColour = new JLabel("Eye Colour");
 		
 		panel_1.add(lblEyeColour, "cell 0 2");
 		
 		JLabel lblSkinColour = new JLabel("Skin Colour");
-		panel_1.add(lblSkinColour, "cell 2 2");
+		panel_1.add(lblSkinColour, "cell 1 2");
 		
 		Choice eye_colour = new Choice();
 		
@@ -285,14 +293,13 @@ public class CharacterCreateFrame extends JFrame {
 			
 		}
 		
-		panel_1.add(skin_colour, "cell 2 3");
+		panel_1.add(skin_colour, "cell 1 3");
 		
 		JLabel lblHairColour = new JLabel("Hair Colour");
 		panel_1.add(lblHairColour, "cell 0 4");
 		
 		JLabel lblSpecialAttribute = new JLabel("Special Attribute");
-		lblSpecialAttribute.setToolTipText("Select Bellow and read description on DONE page");
-		panel_1.add(lblSpecialAttribute, "cell 2 4");
+		panel_1.add(lblSpecialAttribute, "cell 1 4");
 		
 		Choice hair_colour = new Choice();
 		
@@ -324,23 +331,68 @@ public class CharacterCreateFrame extends JFrame {
 			
 		}
 		
-		panel_1.add(slider_1, "cell 2 8");
-		
-		panel_1.add(hair_colour, "cell 0 5");
+		JPanel panel_3 = new JPanel();
+		panel_1.add(panel_3, "cell 1 5,grow");
+		panel_3.setLayout(new MigLayout("", "[grow,fill]", "[grow,fill]"));
 		
 		Choice special = new Choice();
+		special.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				
+				String ttt = "";
+				
+				switch(special.getSelectedItem()) {
+				
+				case"None":
+					ttt = "None";
+					break;
+				case"Hung":
+					ttt = "Cock Size + 2, all future cock modifications are more effective";
+					break;
+				case"Mini":
+					ttt = "Cock size is half'd, all future cock modifications are less efective";
+					break;
+				case"Bulgy":
+					ttt = "Testicle size is doubled, all future testicle modifications are more efective";
+					break;
+				case"Tiny":
+					ttt = "Testicle size is half'd, all future testicle modifications are less efective";
+					break;
+				case"Fertile":
+					ttt = "Fertility is doubled, all future fertility modifications are more efective";
+					break;
+				case"Infertile":
+					ttt = "You are infertile, you can not produce offspring in any way and will never be able to do so";
+					break;
+				case"EtraArdor":
+					ttt = "Libido is doubled, all future changes to your Libido are more efective";
+					break;
+				case"":
+					ttt = "Your Libido is divided by 4, you really dont get horny often. all future changes to your Libido are less efective";
+				
+				}
+				
+				panel_3.setToolTipText(ttt);
+				lblSpecialAttribute.setToolTipText(ttt);
+				
+			}
+		});
+		panel_3.add(special, "cell 0 0");
+		
+		panel_1.add(slider_1, "cell 1 7");
+		
+		panel_1.add(hair_colour, "cell 0 5");
 		for (SpecialSexTrait w: SpecialSexTrait.values()) {
 			
 			special.add(w.toString());
 			
 		}
-		panel_1.add(special, "cell 2 5");
 		
 		JLabel lblBreasts = new JLabel("Breasts: B Cup");
 		panel_1.add(lblBreasts, "cell 0 6");
 		
 		JLabel lblCock = new JLabel("Cock (inches)");
-		panel_1.add(lblCock, "cell 2 6");
+		panel_1.add(lblCock, "cell 1 6");
 		
 		JSlider slider = new JSlider();
 		slider.setMajorTickSpacing(1);
@@ -372,7 +424,7 @@ public class CharacterCreateFrame extends JFrame {
 		slider.setSnapToTicks(true);
 		slider.setValue(1);
 		slider.setMaximum(4);
-		panel_1.add(slider, "cell 0 8");
+		panel_1.add(slider, "cell 0 7");
 		
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Done", null, panel_2, null);
@@ -437,6 +489,7 @@ public class CharacterCreateFrame extends JFrame {
 					
 					name.setText(null);
 					JOptionPane.showMessageDialog(null, "Name Not Allowed. Try Again", "Error", JOptionPane.ERROR_MESSAGE);
+					Utills.log("Name Not Allowed, true");
 					
 				}
 				
@@ -444,6 +497,8 @@ public class CharacterCreateFrame extends JFrame {
 					
 					
 					Character.Name = name.getText();
+					
+					Utills.log("Hi " + Character.Name + "!");
 					
 					for (Gender g: Gender.values()) {
 						
@@ -603,12 +658,8 @@ public class CharacterCreateFrame extends JFrame {
 						}
 						else if (Character.Body.specialAtribute == SpecialSexTrait.Mini) {
 							
-							if (slider_1.getValue() == 2) {
-								
-								penis.length = 1;
-								penis.girth = penis.girth / 2;
-								
-							}
+							penis.length = slider_1.getValue() / 2;
+							penis.girth = penis.girth / 2;
 							
 						}
 						else {

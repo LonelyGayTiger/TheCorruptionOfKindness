@@ -19,6 +19,11 @@ import com.CorruptionOfKindness.Items.Consumables.MinotaurCum;
 import com.CorruptionOfKindness.Items.Weapons.MinotaurAxe;
 import com.CorruptionOfKindness.Utill.Utills;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Minotaur extends Entity implements AfterInit, Drop {
 
 	public Minotaur(com.CorruptionOfKindness.Core.GameState GameState) {

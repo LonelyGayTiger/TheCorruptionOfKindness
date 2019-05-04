@@ -7,10 +7,41 @@ import java.math.BigDecimal;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.swing.JOptionPane;
 
+
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Utills {
+	
+	public static void log(String s) {
+		
+		log(s, false);
+		
+	}
+	
+	public static void log(String s, boolean err) {
+		
+		DateFormat df = new SimpleDateFormat("hh:mm:ss");
+		
+		if (!err) {
+			
+			System.out.println("[" + df.format(Calendar.getInstance().getTime()) + "]Log: " + s);
+			
+		}
+		else {
+			
+			System.err.println("[" + df.format(Calendar.getInstance().getTime()) + "]Error: " + s);
+		}
+		
+	}
 	
 	public static void addStrArrayToChoiceMenu(Choice choice, String[] e) {
 		
@@ -174,6 +205,7 @@ public class Utills {
 		
 	}	
 	
+	/**Downloads a file from @fileURL and saves it to @fileName*/
 	public static void download(String fileName, String fileURL) {
 		
 		URL website;
@@ -224,7 +256,7 @@ public class Utills {
 				return "December";
 		
 		}
-		return "ERROR CODE 357";
+		return "ERROR CODE 367";
 		
 	}
 	

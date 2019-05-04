@@ -1,5 +1,10 @@
 package com.CorruptionOfKindness.Items.Weapons;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class CarvedMetalStaff extends MetalStaff {
 	
 	public CarvedMetalStaff() {

@@ -3,6 +3,11 @@ package com.CorruptionOfKindness.Body.Genitals;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Anus implements CheckInterface, AfterInit {
 
 	@Override

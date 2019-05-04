@@ -3,6 +3,11 @@ package com.CorruptionOfKindness.Items.Consumables;
 import com.CorruptionOfKindness.Core.Entity;
 import com.CorruptionOfKindness.CoreInterfaces.Transformative;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Throbb implements Transformative {
 
 	@Override

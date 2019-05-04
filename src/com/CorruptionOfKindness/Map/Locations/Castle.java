@@ -2,6 +2,11 @@ package com.CorruptionOfKindness.Map.Locations;
 
 import com.CorruptionOfKindness.Core.Location;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Castle extends Location {
 
 	@Override

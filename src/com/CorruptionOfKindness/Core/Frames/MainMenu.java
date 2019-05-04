@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 
 import com.CorruptionOfKindness.Core.Options;
+import com.CorruptionOfKindness.Core.Enum.OSType;
+
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
@@ -25,6 +27,11 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class MainMenu extends JFrame implements Runnable {
 	
 	public MainMenu(Options options) {
@@ -37,10 +44,20 @@ public class MainMenu extends JFrame implements Runnable {
 		}
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		double width = screenSize.getWidth();
-		double height = screenSize.getHeight();
-		this.setLocation((int) ((width / 2) - (1024 / 2)), (int) ((height / 2) - (784 / 2)));
+		
+		if (options.OS == OSType.Windows) {
+			
+			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			double width = screenSize.getWidth();
+			double height = screenSize.getHeight();
+			this.setLocation((int) ((width / 2) - (1024 / 2)), (int) ((height / 2) - (784 / 2)));
+			
+		}
+		else {
+			
+			this.setLocationRelativeTo(null);
+			
+		}
 		setTitle("Corruption Of Kindness " + options.VERSION);
 		setSize(new Dimension(1024, 784));
 		

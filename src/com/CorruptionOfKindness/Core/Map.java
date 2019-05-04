@@ -1,5 +1,10 @@
 package com.CorruptionOfKindness.Core;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Map {
 	
 	public GameState gameState;

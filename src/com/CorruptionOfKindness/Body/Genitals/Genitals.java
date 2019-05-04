@@ -7,6 +7,11 @@ import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
 import com.CorruptionOfKindness.CoreInterfaces.GetDescription;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Genitals implements CheckInterface, AfterInit, GetDescription {
 	
 	public Body body;

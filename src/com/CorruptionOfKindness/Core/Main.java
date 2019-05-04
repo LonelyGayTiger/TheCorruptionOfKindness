@@ -7,9 +7,16 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import com.CorruptionOfKindness.Core.Enum.OSType;
 import com.CorruptionOfKindness.Core.Frames.MainMenu;
 import com.CorruptionOfKindness.Core.Frames.OptionFrame;
 import com.CorruptionOfKindness.Utill.Utills;
+
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 
 public class Main {
 	
@@ -24,6 +31,8 @@ public class Main {
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		
+		Options.afterInit();
+		
 		IO.createDirs();
 		
 		if (!IO.loadOptions()) IO.updateSavedOptions();
@@ -33,6 +42,8 @@ public class Main {
 		mMenu.start();
 		
 		while (cont) {
+			
+			Utills.log("Main");
 			
 			int menuInt = mainMenu.getSelection();
 			
@@ -72,7 +83,7 @@ public class Main {
 		}
 		
 		mainMenu.dispose();
-		mMenu.stop();
+		//mMenu.stop();
 		
 	}
 	
@@ -84,9 +95,13 @@ public class Main {
 		
 	}
 	
+	/**This class is responsible for all of the file management*/
 	public static class IO {
 		
+		/**Creates all the directories the program needs to operate, also downloads any icons or images that it doesn't have from the Internet*/
 		public static void createDirs() {
+			
+			Utills.log("Creating dir's");
 			
 			new File(Options.Path + "\\data").mkdirs();
 			new File(Options.Path + "\\saves").mkdirs();
@@ -95,13 +110,16 @@ public class Main {
 			if (!new File(Options.Path + "\\res\\purple_heart.png").exists()) {
 				
 				Utills.download(Options.Path + "\\res\\purple_heart.png", 
-						"https://emojipedia-us.s3.amazonaws.com/cache/92/a7/92a701115916590546d0229611338f33.png");
+						"https://68.media.tumblr.com/avatar_955a223d8e91_128.png");
 				
 			}
 			
 		}
 		
+		/**Saves the options file for later use*/
 		public static void updateSavedOptions() {
+			
+			Utills.log("Updating Saved Options");
 			
 			try {
 				
@@ -122,9 +140,13 @@ public class Main {
 			
 		}
 		
+		/**Loads the options file from where it is expected to be*/
 		public static boolean loadOptions() {
 			
-			Options e = null;
+			Utills.log("Loading options");
+			
+			Options e = new Options();
+			e.afterInit();
 		      try {
 		         FileInputStream fileIn = new FileInputStream(
 		        		 Options.Path + "\\data\\options.cokOptions");
@@ -134,6 +156,7 @@ public class Main {
 		         fileIn.close();
 		      }catch(IOException i) {
 		         //i.printStackTrace();
+		    	 System.out.println("No Saved Options");
 		         return false;
 		      }catch(ClassNotFoundException c) {
 		         System.out.println("Options class not found");
@@ -153,7 +176,10 @@ public class Main {
 			
 		}
 		
+		/**Saves the GameState at @Options.Path + @path*/
 		public static void save(String path) {
+			
+			Utills.log("Saving game to: " + Options.Path + path);
 			
 			try {
 				
@@ -163,7 +189,7 @@ public class Main {
 				         out.writeObject(GameManager.GameState);
 				         out.close();
 				         fileOut.close();
-				         System.out.printf("Serialized data is saved as" + path);
+				         Utills.log("Serialized data is saved as" + path);
 				         GameManager.GameState.setSaved(true);
 				
 			}
@@ -182,6 +208,8 @@ public class Main {
 		}
 		
 		public static GameState load(String path) {
+			
+			Utills.log("Load from " + (Options.Path + path));
 			
 			GameState e = null;
 		      try {
@@ -213,6 +241,29 @@ public class Main {
 			
 			save("\\saves\\quick\\gameState" + i + ".cok");
 			
+		}
+		
+		public static OSType getOperatingSystemType() {
+			
+			Utills.log("getting OSType");
+		  
+			OSType os = OSType.Windows;
+			String OSString = System.getProperty("os.name", "generic").toLowerCase();
+		      if ((OSString.indexOf("mac") >= 0) || (OSString.indexOf("darwin") >= 0)) {
+		        os = OSType.MacOS;
+		      } else if (OSString.indexOf("win") >= 0) {
+		        os = OSType.Windows;
+		      } else if (OSString.indexOf("nux") >= 0) {
+		        os = OSType.Linux;
+		      } else {
+		        os = OSType.Other;
+		      }
+		      
+		      System.out.println(OSString);
+		      System.out.println(os.toString());
+		    
+		    return os;
+		    		
 		}
 
 	}

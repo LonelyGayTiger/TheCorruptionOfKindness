@@ -19,6 +19,11 @@ import com.CorruptionOfKindness.CoreInterfaces.Drop;
 import com.CorruptionOfKindness.Items.Consumables.CaninePepper;
 import com.CorruptionOfKindness.Utill.Utills;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Hellhound extends Entity implements AfterInit, Drop {
 
 	public Hellhound(com.CorruptionOfKindness.Core.GameState GameState) {

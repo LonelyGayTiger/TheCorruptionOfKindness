@@ -2,16 +2,14 @@ package com.CorruptionOfKindness.Core.Frames;
 
 import javax.swing.JFrame;
 
-import com.CorruptionOfKindness.Core.Area;
 import com.CorruptionOfKindness.Core.Entity;
 import com.CorruptionOfKindness.Core.GameState;
 import com.CorruptionOfKindness.Core.Options;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
-import com.CorruptionOfKindness.Core.Map;
-
+import com.CorruptionOfKindness.Utill.Utills;
 import java.awt.Dimension;
-import java.awt.event.WindowAdapter;
+import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
 import java.awt.BorderLayout;
@@ -31,6 +29,11 @@ import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 	
 	public Entity Player;
@@ -38,13 +41,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 	public GameState gameState;
 	public Options options;
 	
-	public boolean cont = true;
-	
 	private static final long serialVersionUID = 7583679603052302296L;
-	
-	public Area currentArea;
-	
-	public Map Map;
 	
 	public JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btnLevelUp;
 	public JTextPane textPane;
@@ -52,7 +49,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 	private JLabel lblStrength, lblToughness, lblIntelegence, lblLibido, lblSensitivity, lblCorruption, lblHealth, lblLust, lblStamina, lblLevel, lblExperience, lblGold, lblYear, lblDay, lblTime;
 	private JProgressBar corrBar, healthBar, lustBar, stamBar, expBar;
 	
-	public MainFrame(Options options, GameState gameState, ActionListener actL, WindowAdapter windoAdapter) {
+	public MainFrame(Options options, GameState gameState, ActionListener actL, WindowListener windoAdapter) {
 		
 		addWindowListener(windoAdapter);
 		
@@ -492,6 +489,30 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 		this.setVisible(true);
 		
 	}
+	
+	public void reload() {
+		
+		Utills.log("Reloading Main Frame");
+		
+	}
+	
+	public void clearAllText() {
+		
+		textPane.setText("");
+		
+	}
+	
+	public void setText(String s) {
+		
+		textPane.setText(s);
+		
+	}
+	
+	public String getText() {
+		
+		return textPane.getText();
+		
+	}
 
 	public void setButtonNames(String[] buttons) {
 		
@@ -502,7 +523,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 			switch (i) {
 			
 			case 0:
-				if (buttons[i].equals(null)) {
+				if (buttons[i].equals(" ")) {
 					
 					btn1.setName("          ");
 					
@@ -514,7 +535,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 				}
 				break;
 			case 1:
-				if (buttons[i].equals(null)) {
+				if (buttons[i].equals(" ")) {
 					
 					btn2.setName("          ");
 					
@@ -526,7 +547,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 				}
 				break;
 			case 2:
-				if (buttons[i].equals(null)) {
+				if (buttons[i].equals(" ")) {
 					
 					btn3.setName("          ");
 					
@@ -538,7 +559,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 				}
 				break;
 			case 3:
-				if (buttons[i].equals(null)) {
+				if (buttons[i].equals(" ")) {
 					
 					btn4.setName("          ");
 					
@@ -550,7 +571,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 				}
 				break;
 			case 4:
-				if (buttons[i].equals(null)) {
+				if (buttons[i].equals(" ")) {
 					
 					btn5.setName("          ");
 					
@@ -562,7 +583,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 				}
 				break;
 			case 5:
-				if (buttons[i].equals(null)) {
+				if (buttons[i].equals(" ")) {
 					
 					btn6.setName("          ");
 					
@@ -574,7 +595,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 				}
 				break;
 			case 6:
-				if (buttons[i].equals(null)) {
+				if (buttons[i].equals(" ")) {
 					
 					btn7.setName("          ");
 					
@@ -586,7 +607,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 				}
 				break;
 			case 7:
-				if (buttons[i].equals(null)) {
+				if (buttons[i].equals(" ")) {
 					
 					btn8.setName("          ");
 					
@@ -598,7 +619,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 				}
 				break;
 			case 8:
-				if (buttons[i].equals(null)) {
+				if (buttons[i].equals(" ")) {
 					
 					btn9.setName("          ");
 					
@@ -610,7 +631,7 @@ public class MainFrame extends JFrame implements AfterInit, CheckInterface {
 				}
 				break;
 			case 9:
-				if (buttons[i].equals(null)) {
+				if (buttons[i].equals(" ")) {
 					
 					btn10.setName("          ");
 					

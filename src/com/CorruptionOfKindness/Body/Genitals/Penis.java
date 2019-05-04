@@ -10,6 +10,11 @@ import com.CorruptionOfKindness.CoreInterfaces.GetDescription;
 import com.CorruptionOfKindness.CoreInterfaces.Orgasm;
 import com.CorruptionOfKindness.Utill.Utills;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Penis implements AfterInit, Orgasm, GetDescription {
 	
 	public double length = 5;

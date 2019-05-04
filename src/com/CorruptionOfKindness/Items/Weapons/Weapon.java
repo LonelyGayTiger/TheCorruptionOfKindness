@@ -2,6 +2,11 @@ package com.CorruptionOfKindness.Items.Weapons;
 
 import com.CorruptionOfKindness.Items.Item;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public abstract class Weapon extends Item {
 	
 	//Basic Weapon stats
@@ -24,10 +29,10 @@ public abstract class Weapon extends Item {
 		
 	}
 
-
 	@Override
 	public void idleCheck() {
-		// TODO Auto-generated method stub
+		
+		//TODO Add code
 		
 	}
 

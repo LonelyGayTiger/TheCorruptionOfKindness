@@ -2,6 +2,12 @@ package com.CorruptionOfKindness.Utill;
 
 import java.math.BigDecimal;
 
+
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class XtraMath {
 	
 	public static String convertCmToFI(double cm) {
@@ -57,6 +63,7 @@ public class XtraMath {
 		
 	}
 	
+	/**Rounds a double to places decimal places*/
 	public static double roundDouble(double Double, int places) {
 		
 		return new BigDecimal(new BigDecimal(Double).movePointRight(places).intValue()).movePointLeft(places).doubleValue();

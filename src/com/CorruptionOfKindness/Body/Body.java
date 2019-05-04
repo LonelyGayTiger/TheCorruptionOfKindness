@@ -21,6 +21,11 @@ import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
 import com.CorruptionOfKindness.Utill.Utills;
 import com.CorruptionOfKindness.Utill.XtraMath;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Body implements CheckInterface, AfterInit {
 	
 	Entity E;

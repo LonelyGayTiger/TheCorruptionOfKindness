@@ -9,6 +9,11 @@ import com.CorruptionOfKindness.CoreInterfaces.GetDescription;
 import com.CorruptionOfKindness.CoreInterfaces.Orgasm;
 import com.CorruptionOfKindness.Utill.XtraMath;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Testicles implements CheckInterface, AfterInit, Orgasm, GetDescription {
 	
 	private Body body;

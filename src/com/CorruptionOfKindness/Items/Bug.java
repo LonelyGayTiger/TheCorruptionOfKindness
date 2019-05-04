@@ -1,5 +1,10 @@
 package com.CorruptionOfKindness.Items;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Bug extends Item {
 	
 	public String name = "Hello!";

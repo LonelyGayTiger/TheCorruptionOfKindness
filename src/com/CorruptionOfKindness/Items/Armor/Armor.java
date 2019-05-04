@@ -2,6 +2,11 @@ package com.CorruptionOfKindness.Items.Armor;
 
 import com.CorruptionOfKindness.Items.Item;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public abstract class Armor extends Item {
 
 	@Override

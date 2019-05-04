@@ -4,6 +4,11 @@ import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
 import com.CorruptionOfKindness.CoreInterfaces.Orgasm;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Prostate implements CheckInterface, AfterInit, Orgasm {
 
 	@Override

@@ -1,7 +1,23 @@
 package com.CorruptionOfKindness.Core;
 
-import com.CorruptionOfKindness.Core.Frames.MainFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
+import javax.swing.JButton;
+
+import com.CorruptionOfKindness.Core.Main.IO;
+import com.CorruptionOfKindness.Core.Frames.CharacterCreateFrame;
+import com.CorruptionOfKindness.Core.Frames.MainFrame;
+import com.CorruptionOfKindness.Map.Locations.Story.Start;
+import com.CorruptionOfKindness.Utill.Utills;
+
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class GameManager {
 	
 	public GameState GameState = null;
@@ -10,6 +26,92 @@ public class GameManager {
 	Entity Player = null;
 	
 	MainFrame mainFrame = null;
+	boolean end = false;
+	
+	public Area currentArea;
+	
+	WindowListener windoAdpt = new WindowListener() {
+
+		@Override
+		public void windowActivated(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void windowClosed(WindowEvent e) {
+			
+			if (GameState.saved) {
+				
+				end = true;
+				mainFrame.dispose();
+				
+			}
+			else if (GameState.canSave) {
+				
+				if (Utills.getYNWFrame("Save The Game?")) {
+					
+					IO.save();
+					
+				}
+				
+				end = true;
+				mainFrame.dispose();
+				
+			}
+			else {
+				
+				end = true;
+				mainFrame.dispose();
+				
+			}
+			
+		}
+
+		@Override
+		public void windowClosing(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void windowDeactivated(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void windowDeiconified(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void windowIconified(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void windowOpened(WindowEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		
+		
+	};
+	
+	ActionListener actionListener = new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			action(((JButton) e.getSource()).getText());
+			
+		}
+		
+	};
 	
 	public GameManager(Options opt) {
 		
@@ -24,50 +126,73 @@ public class GameManager {
 		
 	}
 	
-	@SuppressWarnings("unused")
+	private void action(String actionName) {
+		
+		//TODO Add Code
+		Utills.log(actionName);
+		
+	}
+	
 	private void Main() {
 		
+		mainFrame.reload();
+		
 		//TODO Add Main Game Loop
+		while(!end) {
+			
+			mainFrame.setButtonNames(currentArea.btnNameArray);
+			mainFrame.enableDisableButtons(currentArea.btnStateArray);
+			
+			if (currentArea.updateText) {
+				
+				mainFrame.setText(currentArea.text);
+				currentArea.updateText = false;
+				
+			}
+			
+		}
 		
 	}
 	
 	public void newGame() {
 		
-		//TODO Add New game Code
+		Utills.log("Starting new game");
+		
+		this.GameState = new GameState();
+		
+		//TODO Implement Game Start Frame
+		CharacterCreateFrame CCFrame = new CharacterCreateFrame(options, GameState);
+		Player = CCFrame.getCharacter();
+		CCFrame.setEnabled(false);
+		CCFrame.dispose();
+		GameState.Player = Player;
+		IO.save();
+		
+		mainFrame = new MainFrame(options, GameState, actionListener, windoAdpt);
+		
+		currentArea = new Start();
+		
+		Main();
 		
 	}
 	
-	public boolean loadFromGD() {
+	public void load() {
 		
-		return false;
+		Utills.log("Loading Game");
 		
+		Player = GameState.Player;
+		
+		mainFrame = new MainFrame(options, GameState, actionListener, windoAdpt);
+		
+		Main();
+				
 	}
 	
-	public boolean loadFromGD(GameState GD) {
+	public void loadFromGD(GameState GD) {
 		
 		GameState = GD;
-		return loadFromGD();
-		
+		load();
+				
 	}
-	
-	
-	/**
-	*public void newGame() {
-	*	
-	*	CharacterCreateFrame CCFrame = new CharacterCreateFrame(Options, gameState);
-	*	Player = CCFrame.getCharacter();
-	*	CCFrame.setEnabled(false);
-	*	CCFrame.dispose();
-	*	System.out.println("IT WORKS, BOO YEAH MOTHA FUCKA");
-	*	gameState.Player = Player;
-	*	System.out.println(Player.Name);
-	*	IO.save();
-	*	//Options.exsistingSave = true; Enable for final version, once a menu exists
-	*	
-	*	mainFrame = new MainFrame(Options, gameState);
-	*	mainFrame.gameStart(true);
-	*	
-	*}
-	*/
 
 }

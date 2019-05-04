@@ -3,6 +3,11 @@ package com.CorruptionOfKindness.Body;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Bladder implements CheckInterface, AfterInit {
 	
 	public double urine = 0;
@@ -51,6 +56,7 @@ public class Bladder implements CheckInterface, AfterInit {
 		
 		if (this.urine > urine) {
 			
+			urinate(true);
 			this.urine = this.maxUrine; //Thanks
 			
 		}

@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class GameStartFrame extends JFrame {
 	
 	/**

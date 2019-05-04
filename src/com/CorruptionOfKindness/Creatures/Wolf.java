@@ -11,6 +11,11 @@ import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.Drop;
 import com.CorruptionOfKindness.Utill.Utills;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Wolf extends Entity implements AfterInit, Drop {
 
 	public Wolf(com.CorruptionOfKindness.Core.GameState GameState, boolean player) {

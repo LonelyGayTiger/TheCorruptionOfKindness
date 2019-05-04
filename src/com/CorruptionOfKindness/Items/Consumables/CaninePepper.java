@@ -5,6 +5,11 @@ import com.CorruptionOfKindness.Core.Enum.CaninePepperType;
 import com.CorruptionOfKindness.CoreInterfaces.Transformative;
 import com.CorruptionOfKindness.Items.Item;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class CaninePepper extends Item implements Transformative {
 	
 	public final CaninePepperType type;

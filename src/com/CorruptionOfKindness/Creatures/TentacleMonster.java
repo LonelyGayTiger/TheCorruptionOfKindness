@@ -4,6 +4,11 @@ import com.CorruptionOfKindness.Core.Entity;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.Drop;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class TentacleMonster extends Entity implements AfterInit, Drop {
 
 	public TentacleMonster(com.CorruptionOfKindness.Core.GameState GameState) {

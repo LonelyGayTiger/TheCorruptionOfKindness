@@ -2,6 +2,11 @@ package com.CorruptionOfKindness.Body.Genitals.Templates;
 
 import com.CorruptionOfKindness.Body.Genitals.Penis;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class DogCock extends Penis {
 	
 	public double length = 6;

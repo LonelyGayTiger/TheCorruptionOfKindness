@@ -5,6 +5,11 @@ import com.CorruptionOfKindness.Core.Perks;
 import com.CorruptionOfKindness.Items.Armor.Armor;
 import com.CorruptionOfKindness.Items.Weapons.Weapon;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Inventory {
 	
 	public Weapon equipedWeapon = null;

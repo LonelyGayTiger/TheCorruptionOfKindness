@@ -3,6 +3,11 @@ package com.CorruptionOfKindness.Items.Consumables;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.Items.Item;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class TigersGift extends Item implements AfterInit {
 
 	@Override

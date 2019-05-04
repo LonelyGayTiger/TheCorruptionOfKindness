@@ -3,6 +3,11 @@ package com.CorruptionOfKindness.Core;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Perks {
 	
 	public Map<String, Boolean> perks = new HashMap<String, Boolean>();

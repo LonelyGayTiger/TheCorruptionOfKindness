@@ -5,6 +5,11 @@ import com.CorruptionOfKindness.CoreInterfaces.Drop;
 import com.CorruptionOfKindness.CoreInterfaces.Parasite;
 import com.CorruptionOfKindness.CoreInterfaces.Transformative;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class TentacleParasite extends Entity implements Parasite, Drop, Transformative {
 
 	public TentacleParasite(com.CorruptionOfKindness.Core.GameState GameState) {

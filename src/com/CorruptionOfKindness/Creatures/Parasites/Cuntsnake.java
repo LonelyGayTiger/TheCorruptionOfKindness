@@ -1,5 +1,10 @@
 package com.CorruptionOfKindness.Creatures.Parasites;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 import com.CorruptionOfKindness.Core.Entity;
 import com.CorruptionOfKindness.CoreInterfaces.AfterInit;
 import com.CorruptionOfKindness.CoreInterfaces.Drop;

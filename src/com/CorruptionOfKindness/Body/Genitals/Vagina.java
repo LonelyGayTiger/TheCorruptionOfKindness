@@ -5,6 +5,11 @@ import com.CorruptionOfKindness.CoreInterfaces.CheckInterface;
 import com.CorruptionOfKindness.CoreInterfaces.GetDescription;
 import com.CorruptionOfKindness.CoreInterfaces.Orgasm;
 
+/**
+ * 
+ * @author LonelyGayTiger
+ *
+ */
 public class Vagina implements CheckInterface, AfterInit, Orgasm, GetDescription {
 
 	@Override
